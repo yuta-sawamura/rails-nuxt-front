@@ -1,5 +1,5 @@
 export default ({ $axios }) => {
- // リクエストログ
+  // リクエストログ
   $axios.onRequest((config) => {
     console.log(config)
   })
