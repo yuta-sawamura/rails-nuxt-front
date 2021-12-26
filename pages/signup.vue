@@ -4,9 +4,16 @@
       <v-form
         v-model="isValid"
       >
-        <user-form-name />
-        <user-form-email />
-        <user-form-password />
+        <user-form-name
+          :name.sync="params.user.name"
+        />
+        name => {{ name }}
+        <user-form-email
+          :email.sync="params.user.email"
+        />
+        <user-form-password
+          :password.sync="params.user.password"
+        />
         <v-btn
           :disabled="!isValid"
           block
@@ -22,10 +29,18 @@
 
 <script>
 export default {
-  layout: 'beforeLogin',
+  layout: 'before-login',
   data () {
     return {
-      isValid: false
+      name: '',
+      isValid: false,
+      params: {
+        user: {
+          name: '',
+          email: '',
+          password: ''
+        }
+      }
     }
   }
 }
