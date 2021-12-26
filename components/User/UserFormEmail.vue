@@ -1,8 +1,9 @@
 <template>
   <v-text-field
     v-model="setEmail"
+    :rules="rules"
     label="メールアドレスを入力"
-    placeholder="your@email.com"
+    :placeholder="form.placeholder"
     outlined
   />
 </template>
@@ -15,6 +16,14 @@ export default {
       default: ''
     }
   },
+  data () {
+    return {
+      rules: [
+        v => !!v || '',
+        v => /.+@.+\..+/.test(v) || ''
+      ]
+    }
+  },
   computed: {
     setEmail: {
       get () {
@@ -23,6 +32,10 @@ export default {
       set (newValue) {
         return this.$emit('update:email', newValue)
       }
+    },
+    form () {
+      const placeholder = this.noValidation ? undefined : 'your@email.com'
+      return { placeholder }
     }
   }
 }
