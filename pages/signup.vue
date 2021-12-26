@@ -8,7 +8,6 @@
         <user-form-name
           :name.sync="params.user.name"
         />
-        name => {{ name }}
         <user-form-email
           :email.sync="params.user.email"
         />
@@ -32,7 +31,7 @@
 
 <script>
 export default {
-  layout: 'before-login',
+  layout: 'beforeLogin',
   data () {
     return {
       name: '',
