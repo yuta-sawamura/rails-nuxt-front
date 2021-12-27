@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  layout: 'beforeLogin',
+  layout: 'before-login',
   data () {
     return {
       name: '',

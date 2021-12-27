@@ -24,14 +24,14 @@
         {{ $t(`menus.${menu.title}`) }}
       </v-btn>
     </v-toolbar-items>
-    <app-signp-button />
-    <app-login-button />
+    <before-login-app-bar-signp-button />
+    <before-login-app-bar-login-button />
     <v-menu
       bottom
       nudge-left="110"
       nudge-width="100"
     >
-      <template v-slot:activator="{ on }">
+      <template #activator="{ on }">
         <v-app-bar-nav-icon
           class="hidden-ipad-and-up"
           v-on="on"

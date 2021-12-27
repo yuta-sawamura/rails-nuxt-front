@@ -17,8 +17,8 @@
 
     <v-spacer />
 
-    <app-signp-button />
-    <app-login-button />
+    <before-login-app-bar-signp-button />
+    <before-login-app-bar-login-button />
   </v-app-bar>
 </template>
 
