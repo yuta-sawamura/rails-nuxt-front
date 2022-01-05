@@ -6,7 +6,7 @@
     color="white"
   >
     <nuxt-link
-      :to="redirectPath"
+      :to="homePath"
       class="text-decoration"
     >
       <app-logo />
@@ -26,7 +26,7 @@ export default {
   components: { LoggedInAppBarAccountMenu },
   data ({ $store }) {
     return {
-      redirectPath: $store.state.loggedIn.redirectPath
+      homePath: $store.state.loggedIn.homePath
     }
   }
 }
