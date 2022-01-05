@@ -29,7 +29,7 @@
 <script>
 export default {
   layout: 'before-login',
-  data () {
+  data ({ $store }) {
     return {
       name: '',
       isValid: false,
@@ -39,15 +39,14 @@ export default {
           email: '',
           password: ''
         }
-      }
+      },
+      redirectPath: $store.state.loggedIn.redirectPath
     }
   },
   methods: {
     lgoin () {
       this.loading = true
-      setTimeout(() => {
-        this.loading = false
-      }, 1500)
+      this.$router.push(this.redirectPath)
     }
   }
 }
