@@ -9,7 +9,7 @@ export const state = () => ({
       name: homePath
     }
   },
-  projects: {
+  project: {
     current: null,
     list: [
       { id: 1, name: 'MyProject01', updatedAt: '2020-04-01T12:00:00+09:00' },
@@ -23,6 +23,16 @@ export const state = () => ({
 
 export const gettrs = {}
 
-export const mutations = {}
+export const mutations = {
+  setCurrentProject (state, payload) {
+    state.project.current = payload
+  }
+}
 
-export const actions = {}
+export const actions = {
+  getCurrentProject ({ state, commit }, params) {
+    const id = Number(params.id)
+    const currentProject = state.project.list.find(project => project.id === id) || null
+    commit('setCurrentProject', currentProject)
+  }
+}

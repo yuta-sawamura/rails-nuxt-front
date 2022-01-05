@@ -152,7 +152,7 @@ export default {
   },
   computed: {
     recentProjects () {
-      const copyProjects = Array.from(this.$store.state.projects.list)
+      const copyProjects = Array.from(this.$store.state.project.list)
       return copyProjects.sort((a, b) => {
         if (a.updatedAt > b.updatedAt) { return -1 }
         if (a.updatedAt < b.updatedAt) { return 1 }

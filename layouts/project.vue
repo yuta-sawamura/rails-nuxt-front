@@ -18,6 +18,7 @@
 import LoggedInAppBar from '~/components/LoggedIn/LoggedInAppBar.vue'
 import ProjectNavigationDrawer from '~/components/Project/ProjectNavigationDrawer.vue'
 export default {
+  middleware: 'get-project-current',
   components: { LoggedInAppBar, ProjectNavigationDrawer },
   data () {
     return {

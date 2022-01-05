@@ -15,8 +15,9 @@
       <app-logo />
     </nuxt-link>
 
-    <app-title />
+    <app-title :class="{ 'hihidden-mobile-and-downdden': isNotHomePath }" />
 
+    <LoggedInAppBarBreadcrumbs v-if="isNotHomePath" />
     <v-spacer />
 
     <LoggedInAppBarAccountMenu />
@@ -25,8 +26,9 @@
 
 <script>
 import LoggedInAppBarAccountMenu from '~/components/LoggedIn/LoggedInAppBarAccountMenu.vue'
+import LoggedInAppBarBreadcrumbs from '~/components/LoggedIn/LoggedInAppBarBreadcrumbs.vue'
 export default {
-  components: { LoggedInAppBarAccountMenu },
+  components: { LoggedInAppBarAccountMenu, LoggedInAppBarBreadcrumbs },
   props: {
     clippedLeft: {
       type: Boolean,
@@ -36,6 +38,11 @@ export default {
   data ({ $store }) {
     return {
       homePath: $store.state.loggedIn.homePath
+    }
+  },
+  computed: {
+    isNotHomePath () {
+      return this.$route.name !== this.homePath.name
     }
   }
 }
